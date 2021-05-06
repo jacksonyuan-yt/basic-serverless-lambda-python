@@ -1,0 +1,27 @@
+service: basic-serverless-lambda-python
+
+provider:
+  name: aws
+  runtime: python3.8
+  stage: dev
+  region: us-west-1
+
+plugins:
+  - serverless-python-requirements
+
+package:
+  individually: true
+
+functions:
+  theLambda:
+    name: test-lambda
+    handler: lambda.handler
+    description: test-lambda
+    timeout: 5 # seconds
+    memorySize: 128 # mb
+    package:
+      patterns:
+        - "!node_modules/**"
+        - "!yarn.lock"
+        - "!package-lock.json"
+        - "!package.json"
