@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: python3.8
   stage: dev
-  region: us-west-1
+  region: eu-central-1
 
 plugins:
   - serverless-python-requirements
